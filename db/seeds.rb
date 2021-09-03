@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Coach.destroy_all
+
+names = ['Christy Schumm', 'Natalia Stanton Jr.', 'Nola Murazik V', "Elyssa O'Kon", 'Dr. Geovany Keebler']
+
+names.each { |name| Coach.create(name: name) }
