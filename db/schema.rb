@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_193007) do
+ActiveRecord::Schema.define(version: 2021_09_03_210037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_193007) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "coach_id", null: false
     t.bigint "week_day_id", null: false
+    t.boolean "available"
     t.index ["coach_id"], name: "index_time_slots_on_coach_id"
     t.index ["week_day_id"], name: "index_time_slots_on_week_day_id"
   end
