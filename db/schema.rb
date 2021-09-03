@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_210037) do
+ActiveRecord::Schema.define(version: 2021_09_03_222207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 2021_09_03_210037) do
     t.string "end"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "week_day_id", null: false
+    t.bigint "coach_id", null: false
+    t.index ["coach_id"], name: "index_appointments_on_coach_id"
+    t.index ["week_day_id"], name: "index_appointments_on_week_day_id"
   end
 
   create_table "coaches", force: :cascade do |t|
@@ -46,6 +50,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_210037) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "appointments", "coaches"
+  add_foreign_key "appointments", "week_days"
   add_foreign_key "time_slots", "coaches"
   add_foreign_key "time_slots", "week_days"
 end
