@@ -5,14 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Appointment.destroy_all
 TimeSlot.destroy_all
 Coach.destroy_all
+WeekDay.destroy_all
+User.destroy_all
+
+user = User.create(name: 'John Million')
 
 names = ['Christy Schumm', 'Natalia Stanton Jr.', 'Nola Murazik V', "Elyssa O'Kon", 'Dr. Geovany Keebler']
-
 coaches = names.map { |name| Coach.create(name: name) }
 
-days = WeekDay.all.map { |day| day }
+days = ['Monday', 'Tuesday', 'Wednsday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+days = days.map { |day| WeekDay.create(day: day) }
 
 hr = 4
 for i in 1..17 do
