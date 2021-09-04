@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_222207) do
+ActiveRecord::Schema.define(version: 2021_09_04_025918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 2021_09_03_222207) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "week_day_id", null: false
     t.bigint "coach_id", null: false
+    t.bigint "user_id", null: false
     t.index ["coach_id"], name: "index_appointments_on_coach_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
     t.index ["week_day_id"], name: "index_appointments_on_week_day_id"
   end
 
@@ -44,6 +46,12 @@ ActiveRecord::Schema.define(version: 2021_09_03_222207) do
     t.index ["week_day_id"], name: "index_time_slots_on_week_day_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "week_days", force: :cascade do |t|
     t.string "day"
     t.datetime "created_at", precision: 6, null: false
@@ -51,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_222207) do
   end
 
   add_foreign_key "appointments", "coaches"
+  add_foreign_key "appointments", "users"
   add_foreign_key "appointments", "week_days"
   add_foreign_key "time_slots", "coaches"
   add_foreign_key "time_slots", "week_days"
