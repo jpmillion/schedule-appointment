@@ -11,8 +11,10 @@
   </head>
 
   <body>
+    <br><br>
     <%= link_to 'Coaches', '/coaches'%>
     <%= link_to 'Sign In', '/users/new'%>
+    <%= link_to 'Home', "/users/#{session[:user_id]}" if session[:user_id] %>
     <%= yield %>
   </body>
 </html>
