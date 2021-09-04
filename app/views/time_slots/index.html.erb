@@ -1,4 +1,5 @@
 <h1 class="text-center"><%= @coach.name %> Available Times</h1>
+<h1>Schedule an Appointment</h1>
 
 <div class="row">
     
@@ -9,7 +10,7 @@
                 <h5><%= link_to time_format(time_slot), new_time_slot_appointment_path(time_slot) if time_slot.available %></h5>
 
             </div>
-            
+
         <% end %>
 
 </div>
