@@ -1,7 +1,7 @@
 <h1><%= @coach.name %> Available Times</h1>
 
 <% for time_slot in @time_slots do %>
-
-    <h3><%= time_slot.week_day.day %>: <%= time_slot.start %> to <%= time_slot.end %></h3>
-
+    <h3><%= link_to time_format(time_slot), new_time_slot_appointment_path(time_slot) if time_slot.available %></h3>
 <% end %>
+
+
