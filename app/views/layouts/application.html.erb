@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="text-center">
     <br><br>
-    <%= link_to 'Coaches', '/coaches'%>
-    <%= link_to 'Sign In', '/users/new'%>
-    <%= link_to 'Home', "/users/#{session[:user_id]}" if session[:user_id] %>
+    <div class="text-center">
+      <%= link_to 'Coaches', '/coaches'%>
+      <%= link_to 'Sign In', '/users/new'%>
+      <%= link_to 'Home', "/users/#{session[:user_id]}" if session[:user_id] %>
+    </div>
     <%= yield %>
   </body>
 </html>

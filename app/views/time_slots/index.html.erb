@@ -1,7 +1,12 @@
-<h1><%= @coach.name %> Available Times</h1>
+<h1 class="text-center"><%= @coach.name %> Available Times</h1>
+<div class="row">
+    
+        <% for time_slot in @time_slots do %>
+        <div class="col-4 text-center">
+            <h5><%= link_to time_format(time_slot), new_time_slot_appointment_path(time_slot) if time_slot.available %></h5>
+        </div>
+        <% end %>
 
-<% for time_slot in @time_slots do %>
-    <h3><%= link_to time_format(time_slot), new_time_slot_appointment_path(time_slot) if time_slot.available %></h3>
-<% end %>
+</div>
 
 
