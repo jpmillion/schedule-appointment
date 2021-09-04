@@ -1,0 +1,8 @@
+<h1>Schedule An Appointment</h1>
+
+<%= form_with model: [@time_slot, @appointment] do |f| %>
+
+    <h3><%= time_format(@time_slot) %></h3>
+    <%= f.submit %>
+
+<% end %>
