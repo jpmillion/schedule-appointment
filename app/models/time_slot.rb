@@ -1,10 +1,12 @@
 class TimeSlot < ApplicationRecord
+
     belongs_to :coach
     belongs_to :week_day
+    has_one :appointment
 
-    before_save :set_available_equals_true
+    after_create :set_available_equals_true
     
     def set_available_equals_true
-        self.available = true
-    end
+        self.update(available: true)
+    end 
 end
