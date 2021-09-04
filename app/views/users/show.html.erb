@@ -1,0 +1,8 @@
+<h1> <%= @user.name %> </h1>
+
+<% for appt in @user.appointments %>
+
+    <%= time_format(appt) %><br>
+    <%= link_to 'Cancel Appointment', appointment_path(appt), method: :delete %><br><br>
+
+<% end %>
