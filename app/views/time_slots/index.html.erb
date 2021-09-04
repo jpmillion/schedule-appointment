@@ -1,0 +1,7 @@
+<h1><%= @coach.name %> Available Times</h1>
+
+<% for time_slot in @time_slots do %>
+
+    <h3><%= time_slot.week_day.day %>: <%= time_slot.start %> to <%= time_slot.end %></h3>
+
+<% end %>
