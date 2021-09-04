@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :time_slots, only: [:index]
   end
 
-  resources :users, only: [:new, :create] do   
-    resources :appointments, shallow: true
-  end 
+  resources :time_slots, only: [:show] do 
+    resources :appointments, only: [:new, :create]
+  end
+
+  resources :users, only: [:new, :create, :show] 
+  resources :appointments, only: [:destroy]
 end
