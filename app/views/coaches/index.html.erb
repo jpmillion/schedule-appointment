@@ -2,6 +2,6 @@
 
 <% for coach in @coaches do %>
 
-    <h2><%= coach.name %></h2>
+    <h2><%= link_to coach.name, coach_time_slots_path(coach) %></h2>
     
 <% end %>
