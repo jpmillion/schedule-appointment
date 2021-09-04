@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :coaches, only: [:index] do 
     resources :time_slots, only: [:index]
   end
+
+  resources :appointments, only: [:create]
 end
