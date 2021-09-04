@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_04_025918) do
+ActiveRecord::Schema.define(version: 2021_09_04_062637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 2021_09_04_025918) do
     t.bigint "week_day_id", null: false
     t.bigint "coach_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "time_slot_id", null: false
     t.index ["coach_id"], name: "index_appointments_on_coach_id"
+    t.index ["time_slot_id"], name: "index_appointments_on_time_slot_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
     t.index ["week_day_id"], name: "index_appointments_on_week_day_id"
   end
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_09_04_025918) do
   end
 
   add_foreign_key "appointments", "coaches"
+  add_foreign_key "appointments", "time_slots"
   add_foreign_key "appointments", "users"
   add_foreign_key "appointments", "week_days"
   add_foreign_key "time_slots", "coaches"
